@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on R Help Blog</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on R Help Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Jul 2020 11:00:14 -0500</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WT(sprint)F?</title>
+      <link>/2020/07/27/wtsprintf/</link>
+      <pubDate>Mon, 27 Jul 2020 11:00:14 -0500</pubDate>
+      
+      <guid>/2020/07/27/wtsprintf/</guid>
+      <description>This is my attempt to help those that are relatively new to R with an often used always annoying function that no one ever really covers in R training courses. As the title may have subtly suggested, I am talking about sprintf(). Simply put, sprintf() returns character objects containing a formatted combination of input values. I will not go into all of the various formats that are available, however I will cover a few practical examples that are often used in our work here.</description>
+    </item>
+    
+  </channel>
+</rss>

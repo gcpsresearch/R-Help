@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<title>WT(sprint)F? - R Help Blog</title>
+<meta property="og:title" content="WT(sprint)F? - R Help Blog">
+
+
+  <link href='../../../../favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../" class="nav-logo">
+    <img src="../../../../images/re_logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="../../../../about/">About</a></li>
+    
+    <li><a href="https://github.com/gcpsresearch">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/GCPS_Research">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">WT(sprint)F?</h1>
+
+    
+    <span class="article-date">2020-07-27</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p>This is my attempt to help those that are relatively new to <code>R</code> with an often used always annoying function that no one ever really covers in <code>R</code> training courses. As the title may have subtly suggested, I am talking about <code>sprintf()</code>. Simply put, <code>sprintf()</code> returns character objects containing a formatted combination of input values. I will not go into all of the various formats that are available, however I will cover a few practical examples that are often used in our work here.</p>
+<div id="example-1-permnum" class="section level1">
+<h1>Example 1: Permnum</h1>
+<p>As we all know, depending on the data source, variables are hardly ever in the same format. Sometimes permnum is stored as an integer, sometimes as a string, sometimes as a string with special characters ( my favorite). If you have an instance where permnum is an integer in one dataframe and character in another, <code>sprinf()</code> can be used to format permnum as character to make merging dataframes possible. To convert permnum from an integer to a 9-character string, run the following:</p>
+<pre class="r"><code>permnum &lt;- 234567890 # Not An Actual Permnum
+sprintf(&quot;%9.0f&quot;, permnum)</code></pre>
+<pre><code>## [1] &quot;234567890&quot;</code></pre>
+<p>To preform this operation on an entire column, you can simply run :</p>
+<pre class="r"><code>df &lt;- df %&gt;% mutate(permnum = sprintf(&quot;%9.0f&quot;, permnum))</code></pre>
+<p>Or (if you’re my mortal enemy):</p>
+<pre class="r"><code>df$permnum &lt;- sprintf(&quot;%9.0f&quot;, df$permnum)</code></pre>
+<p>Example 2: Loc Code</p>
+<p>Location code is another field that is often inexplicably formatted as both numeric and character, seemingly at the whim of whomever created the data source. One constant source of agony for me is the fact that we have two schools (TWO!!!) with double digit loc codes (Annistown ES &amp; Arcado ES). The remaining 140 or so schools have three-digit codes. This poses a problem because often the location codes are stored as three-“digit” (Technically, I guess it’s just a three character string…IDK?) character string, meaning Annistown and Arcado need to be formatted as “090” and “095” respectively or the will not join cleanly when merging two or more datasets.</p>
+<p>The following code can be run to create a three-“digit” character location code with leading zeroes for the perpetual thorns in my side:</p>
+<pre class="r"><code>loc_code &lt;- 90
+sprintf(&quot;%03i&quot;, loc_code)</code></pre>
+<pre><code>## [1] &quot;090&quot;</code></pre>
+<p>or</p>
+<pre class="r"><code>df &lt;- df %&gt;% mutate(loc_code = sprintf(&quot;%03i&quot;, loc_code))</code></pre>
+<p>Sometimes, loc code is stored as a character, but without the leading zero for our example schools, first lets see what happens when you try to run the same code from above with a character variable.</p>
+<pre class="r"><code>loc_code &lt;- &quot;90&quot;
+sprintf(&quot;%03i&quot;, loc_code)</code></pre>
+<p>Spoiler Alert: It returns an ERROR</p>
+<p>How do we fix this? To add a leading zero to an existing character field, simply coerce <code>loc_code</code> to type integer<sup>*</sup> the inside the <code>sprintf()</code> function like so:</p>
+<pre class="r"><code>sprintf(&quot;%03i&quot;, as.integer(loc_code))</code></pre>
+<pre><code>## [1] &quot;090&quot;</code></pre>
+<p><sup>*</sup> WARNING: Much like coercion in real life, coercion in R can lead you down a dangerous path. For instance, if you should have any special characters in a column, coercing that column to integer will produce <code>NAs</code>. You have been warned.</p>
+</div>
+<div id="example-3-rounding" class="section level1">
+<h1>Example 3: Rounding</h1>
+<p>Sometimes you just need to round to the nearest tenth, hundredth, or millionth (if you’re from Wisconsin). To round a numeric variable to the nearest tenth, run the following:</p>
+<pre class="r"><code>pct &lt;- 9.76543
+sprintf(&quot;%.1f&quot;,pct)</code></pre>
+<pre><code>## [1] &quot;9.8&quot;</code></pre>
+<p>To round to the nearest hundredth:</p>
+<pre class="r"><code>pct &lt;- 9.76543
+sprintf(&quot;%.2f&quot;,pct)</code></pre>
+<pre><code>## [1] &quot;9.77&quot;</code></pre>
+<p>And if you wear hats made to resemble a wedge of cheese:</p>
+<pre class="r"><code>pct &lt;- 9.765432
+sprintf(&quot;%.6f&quot;,pct)</code></pre>
+<pre><code>## [1] &quot;9.765432&quot;</code></pre>
+<p>…or you could have simply just left the number as-is.</p>
+</div>
+<div id="other-examples" class="section level1">
+<h1>Other Examples:</h1>
+<p>I may add on to this if folks find it helpful or if there are other specific examples that are requested.
+I wrote this mostly to let you know that you are not alone. <code>sprintf()</code> still gives me trouble to this day and I’m a genius, so don’t give up!</p>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="../../../../index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="../../../../images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="../../../../js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

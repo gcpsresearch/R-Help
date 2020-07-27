@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on R Help Blog</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on R Help Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Jul 2020 11:00:14 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>formatting</title>
+      <link>/tags/formatting/</link>
+      <pubDate>Mon, 27 Jul 2020 11:00:14 -0500</pubDate>
+      
+      <guid>/tags/formatting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Markdown</title>
+      <link>/tags/r-markdown/</link>
+      <pubDate>Mon, 27 Jul 2020 11:00:14 -0500</pubDate>
+      
+      <guid>/tags/r-markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sprintf</title>
+      <link>/tags/sprintf/</link>
+      <pubDate>Mon, 27 Jul 2020 11:00:14 -0500</pubDate>
+      
+      <guid>/tags/sprintf/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,7 +6,7 @@
     <description>Recent content in Tags on R Help Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jul 2020 11:00:14 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>formatting</title>
       <link>/tags/formatting/</link>
-      <pubDate>Mon, 27 Jul 2020 11:00:14 -0500</pubDate>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/formatting/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>R Markdown</title>
       <link>/tags/r-markdown/</link>
-      <pubDate>Mon, 27 Jul 2020 11:00:14 -0500</pubDate>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/r-markdown/</guid>
       <description></description>
@@ -32,7 +32,7 @@
     <item>
       <title>sprintf</title>
       <link>/tags/sprintf/</link>
-      <pubDate>Mon, 27 Jul 2020 11:00:14 -0500</pubDate>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/sprintf/</guid>
       <description></description>

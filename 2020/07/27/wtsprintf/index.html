@@ -87,7 +87,7 @@ sprintf(&quot;%9.0f&quot;, permnum)</code></pre>
 <p>Or (if you’re my mortal enemy):</p>
 <pre class="r"><code>df$permnum &lt;- sprintf(&quot;%9.0f&quot;, df$permnum)</code></pre>
 <p>Example 2: Loc Code</p>
-<p>Location code is another field that is often inexplicably formatted as both numeric and character, seemingly at the whim of whomever created the data source. One constant source of agony for me is the fact that we have two schools (TWO!!!) with double digit loc codes (Annistown ES &amp; Arcado ES). The remaining 140 or so schools have three-digit codes. This poses a problem because often the location codes are stored as three-“digit” (Technically, I guess it’s just a three character string…IDK?) character string, meaning Annistown and Arcado need to be formatted as “090” and “095” respectively or the will not join cleanly when merging two or more datasets.</p>
+<p>Location code is another field that is often inexplicably formatted as both numeric and character, seemingly at the whim of whomever created the data source. One constant source of agony for me is the fact that we have two schools (<strong>TWO!!!</strong>) with double digit loc codes (Annistown ES &amp; Arcado ES). The remaining 140 or so schools have three-digit codes. This poses a problem because often the location codes are stored as three-“digit” (Technically, I guess it’s just a three character string…IDK?) character string, meaning Annistown and Arcado need to be formatted as <code>090</code> and <code>095</code> respectively or the will not join cleanly when merging two or more datasets.</p>
 <p>The following code can be run to create a three-“digit” character location code with leading zeroes for the perpetual thorns in my side:</p>
 <pre class="r"><code>loc_code &lt;- 90
 sprintf(&quot;%03i&quot;, loc_code)</code></pre>
@@ -122,7 +122,7 @@ sprintf(&quot;%.6f&quot;,pct)</code></pre>
 <div id="other-examples" class="section level1">
 <h1>Other Examples:</h1>
 <p>I may add on to this if folks find it helpful or if there are other specific examples that are requested.
-I wrote this mostly to let you know that you are not alone. <code>sprintf()</code> still gives me trouble to this day and I’m a genius, so don’t give up!</p>
+I wrote this mostly to let you know that you are not alone. <code>sprintf()</code> still gives me trouble to this day and I’m a <em><strong>genius</strong></em>, so don’t give up!</p>
 </div>
 
     </div>

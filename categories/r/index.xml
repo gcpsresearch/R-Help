@@ -6,19 +6,10 @@
     <description>Recent content in R on R Help Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Dynamic Path to R&amp;E Directory</title>
-      <link>/2020/07/28/dynamic-path-to-re-directory/</link>
-      <pubDate>Tue, 28 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/07/28/dynamic-path-to-re-directory/</guid>
-      <description>header {width: 100%;text-align: left;background-color: #CCCCCC;font-family:roboto;}body{width: 50%;background-color: #FFFFFF;font-family:roboto;}h1 {color: black;text-align: left;font-family:roboto;}p {font-family:roboto;font-size: 20px;}table.minimalistBlack {font-family:roboto;width: 100%;text-align: left;border-collapse: collapse;}table.minimalistBlack td, table.minimalistBlack th {border: 1px solid #999999;padding: 5px 4px;}table.minimalistBlack tbody td {font-size: 13px;}table.minimalistBlack thead {background: #CCCCCC;background: -moz-linear-gradient(top, #d9d9d9 0%, #d1d1d1 66%, #CCCCCC 100%);background: -webkit-linear-gradient(top, #d9d9d9 0%, #d1d1d1 66%, #CCCCCC 100%);background: linear-gradient(to bottom, #d9d9d9 0%, #d1d1d1 66%, #CCCCCC 100%);border-bottom: 2px solid #000000;}table.</description>
-    </item>
     
     <item>
       <title>WT(sprint)F?</title>

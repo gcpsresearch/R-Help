@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<title>Dynamic Path to R&amp;E Directory - R Help Blog</title>
+<meta property="og:title" content="Dynamic Path to R&amp;E Directory - R Help Blog">
+
+
+  <link href='../../../../torch.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../" class="nav-logo">
+    <img src="../../../../images/re_logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="../../../../about/">About</a></li>
+    
+    <li><a href="https://github.com/gcpsresearch">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/GCPS_Research">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Dynamic Path to R&amp;E Directory</h1>
+
+    
+    <span class="article-date">2020-07-28</span>
+    
+
+    <div class="article-content">
+      
+
+
+<style type="text/css">
+header {
+  width: 100%;
+  text-align: left;
+  background-color: #CCCCCC;
+  font-family:roboto;
+}
+
+body{
+  width: 50%;
+  background-color: #FFFFFF;
+  font-family:roboto;
+}
+
+
+h1 {
+  color: black;
+  text-align: left;
+  font-family:roboto;
+}
+
+p {
+  font-family:roboto;
+  font-size: 20px;
+}
+
+
+table.minimalistBlack {
+  font-family:roboto;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.minimalistBlack td, table.minimalistBlack th {
+  border: 1px solid #999999;
+  padding: 5px 4px;
+}
+table.minimalistBlack tbody td {
+  font-size: 13px;
+}
+table.minimalistBlack thead {
+  background: #CCCCCC;
+  background: -moz-linear-gradient(top, #d9d9d9 0%, #d1d1d1 66%, #CCCCCC 100%);
+  background: -webkit-linear-gradient(top, #d9d9d9 0%, #d1d1d1 66%, #CCCCCC 100%);
+  background: linear-gradient(to bottom, #d9d9d9 0%, #d1d1d1 66%, #CCCCCC 100%);
+  border-bottom: 2px solid #000000;
+}
+table.minimalistBlack thead th {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+}
+table.minimalistBlack tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  border-top: 2px solid #000000;
+}
+table.minimalistBlack tfoot td {
+  font-size: 14px;
+}
+  </style>
+<header>
+<p>
+This blog entry was kindly contributed by the Executive Director of the Office of Research and Evaluation<br />
+Please direct all questions to <a href="mailto:James.Appleton@gcpsk12.org" class="email">James.Appleton@gcpsk12.org</a>
+</p>
+</header>
+<div id="purpose" class="section level2">
+<h2>Purpose</h2>
+<p>The file, which can be downloaded below serves as a dynamic file path to the ResearchEvaluation root directory on <code>S:\\</code>.
+It an be updated if the path changes to ensure code written referencing it will not be broken.</p>
+</div>
+<div id="file-location" class="section level2">
+<h2>File Location</h2>
+<p>To download and save a file for use, right-click and save <a href="//schools/groups$/Superintendent/Private/Strategy%20&amp;%20Performance/ResearchEvaluation/R/current_path.txt">this link</a>.
+The file should be saved in the directory of your choosing (for example <code>C:\\current_path.txt</code>). The <em>ResearchEvaluation</em> path can then be accessed by running</p>
+<pre class="r"><code>readLines(&quot;C:/current_path.txt&quot;)</code></pre>
+<pre><code>## [1] &quot;S:\\Superintendent\\Private\\Strategy &amp; Performance\\ResearchEvaluation&quot;</code></pre>
+<p>or</p>
+<pre class="r"><code>readLines(&quot;C:\\current_path.txt&quot;)</code></pre>
+<pre><code>## [1] &quot;S:\\Superintendent\\Private\\Strategy &amp; Performance\\ResearchEvaluation&quot;</code></pre>
+<p>The path can also be assigned to an object and then used to access the R&amp;E directory. See the following for an example:</p>
+<pre class="r"><code>re_path &lt;- readLines(&quot;C:\\current_path.txt&quot;)
+
+paste0(re_path,&quot;\\hi.png&quot;)</code></pre>
+<pre><code>## [1] &quot;S:\\Superintendent\\Private\\Strategy &amp; Performance\\ResearchEvaluation\\hi.png&quot;</code></pre>
+<p>Which leads you here:</p>
+<div class="figure">
+<img src="hi.png" alt="" />
+<p class="caption">HI</p>
+</div>
+<div id="editors-note" class="section level4">
+<h4>Editor’s Note:</h4>
+<p>Alternatives to the steps laid out above are to either:
+- Add the directory location as a code snippet in RStudio or
+- Add the directory location to your <code>.Rprofile</code></p>
+<p>Stay tuned for upcoming posts detailing how to customize snippets in Rstudio and how to save time by adding frequently used code to your <code>.Rprofile</code></p>
+</div>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="../../../../index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="../../../../images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="../../../../js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
